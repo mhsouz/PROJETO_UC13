@@ -1,0 +1,11 @@
+# ignora pasta node_modules
+node_modules/   
+# ignora arquivos log
+*.log
+#ignora variáveis 
+.env
+#ignora pasta temporária
+temp/
+dist/
+
+
