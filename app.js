@@ -31,14 +31,37 @@ conexao.connect(function (erro){
     console.log ('🤓 conexão com o banco de dados estabelecida com sucesso !');
     });
 
-app.get ('/', (req,res) => {
-    res.render('teste');
-});
+    // inserir tabela de produto
+app.get ('/', (req,res) => {;
+    let sql = 'select * from produto';
+    conexao.query(sql, function (erro, produto_qs) {
+        if (erro){
+            console.error(' Erro ao consultar produtos: ', erro);
+            res.status(500).send (' 👾 Erro ao consultar produtos');
+            return;
+        }
+    res.render('index', {produto:produto_qs});
+    });
+}
+);
 
-
+    // inserir tabela de cliente
+app.get ('/cliente', (req,res) => {;
+    let sql = 'select * from cliente';
+    conexao.query(sql, function (erro, cliente_qs) {
+        if (erro){
+            console.error(' Erro ao consultar cliente: ', erro);
+            res.status(500).send (' 👾 Erro ao consultar cliente');
+            return;
+        }
+    res.render('index', {cliente:cliente_qs});
+    });
+}
+);
+    
 //app.get ("/", function(req,res){     // efetuando requisição tipo get ,  / = na url , req = requisição , res= resposta
 //   res.write("hello world 333 !!");
 // res.end();                          // finalizar resposta
 //});
 
-app. listen(8080); // 
+app.listen(8080);
