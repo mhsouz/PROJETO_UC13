@@ -1,19 +1,26 @@
 //console.log("hello world!!!");
 
+// instalação express-handlebar
+
 const express = require ('express'); // express = framework para facilitar criação web
 const { engine } = require('express-handlebars');
 const app = express(); //app é o servidor web
 
 const mysql = require ('mysql2');
 
+//configuração do caminho estático do bootstrap
 app.use ('/bootstrap', express.static (__dirname + '/node_modules/bootstrap/dist'));
 
+
+//"engine" para visualização
 app.engine('handlebars', engine());
+//define o que o engine irá buscar: handlebars
 app.set('view engine','handlebars');
+//define onde o template estará
 app.set('views','./views');
 
 
-
+//conexão MYSQL
 
 const conexao = mysql.createConnection({
     host: 'localhost',
