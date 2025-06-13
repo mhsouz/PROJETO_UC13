@@ -25,3 +25,50 @@
     <p>Sem cliente disponíveis no momento</p>
 {{/if}}
 
+<!--formulá<rio-->
+<form>
+<fieldset>
+<h1>Adicionar Produto</h1>
+
+<div>
+      <label for="exampleTextarea" class="form-label mt-4">Nome</label>
+      <textarea class="form-control" id="exampleNome" rows="1"></textarea>
+    </div>
+
+<div>
+      <label for="descrição" class="form-label mt-4">Descrição</label>
+      <textarea class="form-control" id="exampledescricao" rows="4"></textarea>
+    </div>
+
+<div class="mb-3">
+    <label for="quantidadeProduto" class="form-label">Preço:</label>
+    <div>
+    <input type="number" class="form-control" id="quantidadeProduto" name="quantidadeProduto" min="1" value="1">
+  </div>
+</div>
+
+<div class="mb-3">
+    <label for="estoqueProduto" class="form-label">Estoque:</label>
+    <div>
+    <input type="number" class="form-control" id="estoqueProduto" name="estoqueProduto" min="1" value="1">
+  </div>
+</div>
+
+
+
+
+
+<div>
+      <label for="categoria" class="form-label mt-4">Categoria</label>
+      <select class="form-select" id="categoria">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+
+   <button type="salvar" class="btn btn-primary">Salvar</button>
+  </fieldset>
+</form>

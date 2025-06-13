@@ -10,6 +10,7 @@ const mysql = require ('mysql2');
 
 //configuração do caminho estático do bootstrap
 app.use ('/bootstrap', express.static (__dirname + '/node_modules/bootstrap/dist'));
+app.use('/static',express.static(__dirname + '/static'));
 
 
 //"engine" para visualização
@@ -53,15 +54,15 @@ app.get ('/', (req,res) => {;
 );
 
     // inserir tabela de cliente
-app.get ('/cliente', (req,res) => {;
+    app.get ('/cliente', (req,res) => {;
     let sql = 'select * from cliente';
     conexao.query(sql, function (erro, cliente_qs) {
         if (erro){
             console.error(' Erro ao consultar cliente: ', erro);
-            res.status(500).send (' 👾 Erro ao consultar cliente');
-            return;
-        }
-    res.render('index', {cliente:cliente_qs});
+          res.status(500).send (' 👾 Erro ao consultar cliente');
+          return;
+       }
+   res.render('index', {cliente:cliente_qs});
     });
 }
 );
